@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Future - Matrix Style</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            font-family: "Courier New", monospace;
+            color: #00ff00;
+            overflow: hidden;
+            cursor: crosshair;
+        }
+
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .matrix-column {
+            position: absolute;
+            top: -100%;
+            color: #00ff00;
+            font-size: 20px;
+            font-weight: bold;
+            text-shadow: 0 0 10px #00ff00;
+            animation: matrix-fall linear infinite;
+        }
+
+        @keyframes matrix-fall {
+            0% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        .main-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding-top: 20vh;
+        }
+
+        .title {
+            font-size: 4em;
+            font-weight: bold;
+            text-shadow: 
+                0 0 20px #00ff00,
+                0 0 40px #00ff00,
+                0 0 60px #00ff00;
+            margin-bottom: 50px;
+            animation: title-glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes title-glow {
+            from {
+                text-shadow: 
+                    0 0 20px #00ff00,
+                    0 0 40px #00ff00,
+                    0 0 60px #00ff00;
+            }
+            to {
+                text-shadow: 
+                    0 0 30px #00ff00,
+                    0 0 60px #00ff00,
+                    0 0 90px #00ff00;
+            }
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        .matrix-text {
+            font-size: 1.2em;
+            margin: 20px 0;
+            opacity: 0.7;
+        }
+
+        .glitch {
+            animation: glitch 3s infinite;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        .terminal {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #00ff00;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            box-shadow: 0 0 20px #00ff00;
+        }
+
+        .terminal-text {
+            font-family: "Courier New", monospace;
+            color: #00ff00;
+            margin: 5px 0;
+        }
+
+        .cursor {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .early-2000s-elements {
+            margin-top: 50px;
+        }
+
+        .counter {
+            font-size: 1.5em;
+            margin: 20px 0;
+            text-shadow: 0 0 10px #00ff00;
+        }
+
+        .construction {
+            font-size: 1em;
+            margin: 30px 0;
+            opacity: 0.6;
+        }
+
+        .marquee {
+            background: #000;
+            border: 1px solid #00ff00;
+            padding: 10px;
+            margin: 20px auto;
+            max-width: 500px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee span {
+            display: inline-block;
+            animation: marquee 10s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body>
+    <div class="matrix-bg" id="matrixBg"></div>
+    
+    <div class="main-content">
+        <h1 class="title glitch">Welcome to the Future</h1>
+        
+        <div class="subtitle">Enter the Digital Realm</div>
+        
+        <div class="terminal">
+            <div class="terminal-text">> System initialized...</div>
+            <div class="terminal-text">> Matrix protocols active</div>
+            <div class="terminal-text">> Welcome, user <span class="cursor">_</span></div>
+        </div>
+        
+        <div class="matrix-text">The future is now. The past is obsolete.</div>
+        
+        <div class="early-2000s-elements">
+            <div class="counter">Visitors: <span id="visitorCount">000001</span></div>
+            
+            <div class="marquee">
+                <span>*** WELCOME TO THE FUTURE *** BEST VIEWED WITH INTERNET EXPLORER 6.0 *** UNDER CONSTRUCTION ***</span>
+            </div>
+            
+            <div class="construction">
+                🚧 This site is under construction 🚧<br>
+                Last updated: <span id="lastUpdated"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
